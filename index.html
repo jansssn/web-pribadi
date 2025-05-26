@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>januar web portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0f0c;
+      color: #dfffe2;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #0e2012;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #76ff76;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #c6ffc6;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #76ff76;
+    }
+
+    main.container {
+      flex: 1;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-spacing {
+      margin-top: 11rem;
+    }
+
+    .top-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .photo {
+      flex: 1 1 250px;
+      max-width: 300px;
+    }
+
+    .photo img {
+      width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: transparent;
+      box-shadow: 0 0 30px #4cff4c66;
+    }
+
+    .info {
+      flex: 2 1 300px;
+    }
+
+    .info h1 {
+      font-size: 2.5rem;
+      color: #aaffaa;
+    }
+
+    .info p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #c0ffc0;
+    }
+
+    section.about {
+      margin-top: 6rem;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #4cff4c;
+      display: inline-block;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    section.skills {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+.skill-box {
+  padding: 2rem;
+  background-color: #162d16;
+  border: 2px solid #2c502c;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #dfffe2;
+  text-align: left;
+}
+
+.skill-box h3,
+.skill-box p {
+  color: inherit;
+}
+
+.skill-box.active {
+  background-color: #1eff5c;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.skill-box:hover {
+  transform: scale(1.05);
+}
+
+    .skill-box:hover,
+  .skill-box.active {
+  background-color: #1eff5c;
+  color: #000;
+  transform: scale(1.05);
+}
+
+  
+    .contact-tagline {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #c0ffc0;
+  text-align: center;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.article-card {
+  background-color: #162d16;
+  border: 2px solid #2c502c;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.article-card h3 {
+  font-size: 1.2rem;
+  color: #aaffaa;
+  margin-bottom: 0.5rem;
+}
+
+.article-card p {
+  font-size: 1rem;
+  color: #c0ffc0;
+  margin-bottom: 1rem;
+}
+
+.article-card a {
+  color: #76ff76;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.article-card a:hover {
+  text-decoration: underline;
+}
+
+.article-card:hover {
+  transform: scale(1.03);
+  background-color: #1eff5c;
+  color: #000;
+}
+
+.article-card:hover a {
+  color: #000;
+}
+
+  
+  footer {
+  background-color: #0e2012;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer .copyright {
+  font-size: 0.9rem;
+  color: #c0ffc0;
+  margin-bottom: 1rem;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-icons a {
+  color: #76ff76;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-icons a:hover {
+  color: #caffca;
+}
+
+.material-icons {
+  font-size: 2rem;
+}
+
+
+    @media (max-width: 600px) {
+      .info h1 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+        padding-left: 0;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+
+  <!-- FontAwesome CDN -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">Jan</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://www.linkedin.com/in/januarbaeturahman" target="_blank">Contact</a></li>
+      <li><a href="https://www.canva.com/design/DAGT7wAsYnk/XV1ln9w5m-BY5qW2-KFh2w/view?utm_content=DAGT7wAsYnk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=haec2f9653f" target="_blank">CV</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <div class="top-section">
+      <div class="photo">
+        <img src="profile.jpg" alt="Fergie Woods" />
+      </div>
+      <div class="info">
+        <h1>Hello I'm Januar</h1>
+        <p>I’m a passionate IT Network Engineer focused on designing and maintaining efficient, secure, and scalable network infrastructures.</p>
+      </div>
+    </div>
+
+    <section id="about" class="about section-spacing">
+      <h2>About Me</h2>
+      <p>
+        I am an experienced IT Network Engineer with over 5 years of expertise in routing, switching, firewalls, and system integration. I have worked with enterprise-level networks and thrive in fast-paced environments.
+      </p>
+    </section>
+
+    <section class="skills section-spacing">
+  <div class="skill-box">
+    <h3>Linux Administrator</h3>
+    <p>Proficient in managing Linux servers, automation, and scripting for infrastructure efficiency.</p>
+  </div>
+  <div class="skill-box">
+    <h3>Network Administrator</h3>
+    <p>Experience in configuring routers, switches, and ensuring stable network connectivity.</p>
+  </div>
+  <div class="skill-box">
+    <h3>Penetration Testing</h3>
+    <p>Skilled in vulnerability assessment and ethical hacking for system security improvements.</p>
+  </div>
+  </section>
+  
+  <section id="contact" class="section-spacing">
+  <h2>Latest Articles</h2>
+  <p class="contact-tagline">I regularly write about IT, networking, and cybersecurity on Medium. Here are some of my latest posts:</p>
+
+  <div class="articles-grid">
+    <div class="article-card">
+      <h3>🔐 Securing Enterprise Networks in 2024</h3>
+      <p>A practical look into securing modern infrastructure using zero trust and layered defense strategies.</p>
+      <a href="https://medium.com/your-article-1" target="_blank">Read more →</a>
+    </div>
+
+    <div class="article-card">
+      <h3>🌐 Building Scalable Networks for Startups</h3>
+      <p>Best practices I’ve learned while designing resilient and flexible networks for growing companies.</p>
+      <a href="https://medium.com/your-article-2" target="_blank">Read more →</a>
+    </div>
+
+    <div class="article-card">
+      <h3>🐧 Linux Tips for Network Engineers</h3>
+      <p>From bash to automation — how Linux can supercharge your daily workflow in networking.</p>
+      <a href="https://medium.com/your-article-3" target="_blank">Read more →</a>
+    </div>
+
+    <div class="article-card">
+      <h3>🛡️ My Journey Into Ethical Hacking</h3>
+      <p>Reflections on certification, mindset, and how ethical hacking changed my approach to IT.</p>
+      <a href="https://medium.com/your-article-4" target="_blank">Read more →</a>
+    </div>
+  </div>
+</section>
+  </main>
+  
+<footer>
+  <p class="copyright">© 2025 Januar. All rights reserved.</p>
+  <div class="footer-icons">
+    <a href="https://github.com/jansss" target="_blank" title="GitHub">
+      <span class="material-icons">code</span>
+    </a>
+    <a href="https://youtube.com/kelashacker" target="_blank" title="YouTube">
+      <span class="material-icons">smart_display</span>
+    </a>
+    <a href="https://www.instagram.com/jann.rhm" target="_blank" title="Instagram">
+      <span class="material-icons">photo_camera</span>
+    </a>
+    <a href="https://www.linkedin.com/in/januarbaeturahman" target="_blank" title="LinkedIn">
+      <span class="material-icons">work</span>
+    </a>
+  </div>
+</footer>
+
+  <script>
+    // Active skill box
+    const skillBoxes = document.querySelectorAll('.skill-box');
+    skillBoxes.forEach(box => {
+  box.addEventListener('click', () => {
+    skillBoxes.forEach(b => b.classList.remove('active')); // Matikan semua
+    box.classList.add('active'); // Aktifkan yang diklik
+  });
+});
+  </script>
+</body>
+</html>
